@@ -17,7 +17,7 @@ public class Diary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int diaryId;
+    private Integer diaryId;
 
     @Column(nullable = false)
     private String userId;
@@ -36,7 +36,7 @@ public class Diary {
 
     private LocalDateTime date;
 
-    public Diary(int id, String userId, String title, String contents, float rating1, float rating2, float rating3, LocalDateTime date) {
+    public Diary(Integer id, String userId, String title, String contents, float rating1, float rating2, float rating3, LocalDateTime date) {
         this.diaryId = id;
         this.userId = userId;
         this.title = title;

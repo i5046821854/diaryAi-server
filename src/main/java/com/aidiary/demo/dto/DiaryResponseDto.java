@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Data
 public class DiaryResponseDto {
 
-    private int diaryId;
+    private Integer diaryId;
     private String userId;
     private String title;
     private String contents;
@@ -17,7 +17,8 @@ public class DiaryResponseDto {
     private float rating3;
     private LocalDateTime date;
 
-    public DiaryResponseDto(String userId, String title, String contents, float rating1, float rating2, float rating3, LocalDateTime date) {
+    public DiaryResponseDto(Integer diaryId, String userId, String title, String contents, float rating1, float rating2, float rating3, LocalDateTime date) {
+        this.diaryId = diaryId;
         this.userId = userId;
         this.title = title;
         this.contents = contents;
