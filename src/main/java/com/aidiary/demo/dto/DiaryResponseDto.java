@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Data
 public class DiaryResponseDto {
 
+    private int diaryId;
     private String userId;
     private String title;
     private String contents;

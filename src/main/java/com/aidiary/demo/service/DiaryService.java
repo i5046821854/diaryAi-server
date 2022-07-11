@@ -44,13 +44,13 @@ public class DiaryService {
                 .rating1(dto.getRating1())
                 .rating2(dto.getRating2())
                 .rating3(dto.getRating3())
-                .build()).getId();
+                .build()).getDiaryId();
     }
 
     public int updateDiary(Map<String, String> req) {
-        int diaryId = Integer.parseInt(req.get("id"));
+        int diaryId = Integer.parseInt(req.get("diaryId"));
         Diary diary = diaryRepository.findById(diaryId).orElseThrow(() -> new IllegalArgumentException("아직 없습니다"));
         diary.changeRatings(req);
-        return diaryRepository.save(diary).getId();
+        return diaryRepository.save(diary).getDiaryId();
     }
 }
