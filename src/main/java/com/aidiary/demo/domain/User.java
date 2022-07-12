@@ -1,6 +1,7 @@
 package com.aidiary.demo.domain;
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,6 +19,10 @@ import java.util.stream.Collectors;
 public class User implements UserDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer user_seq;
+
+    @Column(nullable = false)
     private String userId;
 
     @Column(nullable = false)
