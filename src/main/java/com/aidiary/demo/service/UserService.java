@@ -29,7 +29,7 @@ public class UserService {
 
 
     public String registerUser(AccountRequestDto requestDto) {
-        String username = requestDto.getUsername();
+        String username = requestDto.getUserId();
         // 회원 ID 중복 확인
         Optional<User> found = userRepository.findByUserId(username);
         if (found.isPresent()) {
@@ -46,8 +46,8 @@ public class UserService {
 
     public String login(AccountRequestDto user)
     {
-        User member = userRepository.findByUserId(user.getUsername())
-                .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 아이디입니다."));
+        User member = userRepository.findByUserId(user.getUserId())
+                .orElseThrow(() -> new UserAuthException("가입되지 않은 아이디입니다."));
         if (!passwordEncoder.matches(user.getPassword(), member.getPassword())) {
             throw new UserAuthException("잘못된 비밀번호입니다.");
         }

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class AccountRequestDto {
-    private String username;
+    private String userId;
     private String password;
     private boolean admin = false;
 }
