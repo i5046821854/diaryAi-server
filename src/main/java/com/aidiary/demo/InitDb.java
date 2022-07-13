@@ -5,6 +5,7 @@ import com.aidiary.demo.domain.User;
 import com.aidiary.demo.repository.DiaryRepository;
 import com.aidiary.demo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,12 +33,15 @@ public class InitDb {
 
         private final UserRepository userRepository;
         private final DiaryRepository diaryRepository;
+        private final PasswordEncoder passwordEncoder;
+
         public void dbInit(){
             List<String> grades = new ArrayList<>();
             grades.add("USER");
-            User user = new User("dldudtls", "123", grades);
+            String password = passwordEncoder.encode("123");
+            User user = new User("dldudtls", password, grades);
             userRepository.save(user);
-            Diary diary = new Diary(1, "dldudtls", "title", "contents", 5.0f, 4.5f, 4.0f, LocalDateTime.now());
+            Diary diary = new Diary(1, "dldudtls", "title", "contents", new Date().getTime());
             diaryRepository.save(diary);
         }
     }

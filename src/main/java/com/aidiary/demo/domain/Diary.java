@@ -26,35 +26,29 @@ public class Diary {
     private String title;
 
     @Lob
-    private String contents;
+    private String content;
 
-    private float rating1;
+    private float rating1 = 0;
 
-    private float rating2;
+    private float rating2 = 0;
 
-    private float rating3;
+    private float rating3 = 0;
 
-    private LocalDateTime date;
+    private Long date;
 
-    public Diary(Integer id, String userId, String title, String contents, float rating1, float rating2, float rating3, LocalDateTime date) {
+    public Diary(Integer id, String userId, String title, String content, Long date) {
         this.diaryId = id;
         this.userId = userId;
         this.title = title;
-        this.contents = contents;
-        this.rating1 = rating1;
-        this.rating2 = rating2;
-        this.rating3 = rating3;
+        this.content = content;
         this.date = date;
     }
 
     @Builder
-    public Diary(String userId, String title, String contents, float rating1, float rating2, float rating3, LocalDateTime date) {
+    public Diary(String userId, String title, String content, Long date) {
         this.userId = userId;
         this.title = title;
-        this.contents = contents;
-        this.rating1 = rating1;
-        this.rating2 = rating2;
-        this.rating3 = rating3;
+        this.content = content;
         this.date = date;
     }
 
@@ -63,6 +57,5 @@ public class Diary {
         this.rating1 = Float.parseFloat(newRatings.get("rating1"));
         this.rating2 = Float.parseFloat(newRatings.get("rating2"));
         this.rating3 = Float.parseFloat(newRatings.get("rating3"));
-
     }
 }

@@ -1,6 +1,7 @@
 package com.aidiary.demo.controller;
 
 import com.aidiary.demo.dto.DiaryResponseDto;
+import com.aidiary.demo.dto.UpdateResponseDto;
 import com.aidiary.demo.exception.DiaryException;
 import com.aidiary.demo.service.DiaryService;
 import com.aidiary.demo.service.UserService;
@@ -42,7 +43,7 @@ public class DiaryController {
     }
 
     @PostMapping("/updateDiary")
-    public DiaryResponseDto updateDiary(@RequestBody Map<String, String> req)
+    public UpdateResponseDto updateDiary(@RequestBody Map<String, String> req)
     {
         return diaryService.updateDiary(req);
     }
