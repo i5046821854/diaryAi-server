@@ -30,14 +30,14 @@ public class DiaryController {
     }
 
     @GetMapping("/getDiary")
-    public List<DiaryResponseDto> getDiary(@RequestAttribute("username") String username)
+    public List<UpdateResponseDto> getDiary(@RequestAttribute("username") String username)
     {
         return diaryService.getDiary(username);
     }
 
 
     @PostMapping("/postDiary")
-    public DiaryResponseDto postDiary(@RequestBody DiaryResponseDto req, @RequestAttribute("username") String username)
+    public UpdateResponseDto postDiary(@RequestBody DiaryResponseDto req, @RequestAttribute("username") String username)
     {
         return diaryService.postDiary(req, username);
     }

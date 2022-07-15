@@ -17,10 +17,10 @@ public class UpdateResponseDto {
     private float rating3;
     private Long date;
 
-    public UpdateResponseDto(Integer diaryId, String title, String contents, float rating1, float rating2, float rating3, Long date) {
+    public UpdateResponseDto(Integer diaryId, String title, String content, float rating1, float rating2, float rating3, Long date) {
         this.diary_id = diaryId;
         this.title = title;
-        this.content = contents;
+        this.content = content;
         this.rating1 = rating1;
         this.rating2 = rating2;
         this.rating3 = rating3;

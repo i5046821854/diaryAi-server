@@ -25,9 +25,9 @@ public class DiaryService {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider jwtTokenProvider;
 
-    public List<DiaryResponseDto> getDiary(String userId)
+    public List<UpdateResponseDto> getDiary(String userId)
     {
-        List<DiaryResponseDto> diary = diaryRepository.findDiaryResponseDto(userId);
+        List<UpdateResponseDto> diary = diaryRepository.findDiaryResponseDto(userId);
         if(diary.isEmpty())
         {
             throw new DiaryException("아직 없습니다");
@@ -35,8 +35,8 @@ public class DiaryService {
         return diary;
     }
 
-    public DiaryResponseDto postDiary(DiaryResponseDto dto, String username){
-        return diaryToPostDto(diaryRepository.save(Diary.builder()
+    public UpdateResponseDto postDiary(DiaryResponseDto dto, String username){
+        return diaryToUpdateDto(diaryRepository.save(Diary.builder()
                 .userId(username)
                 .content(dto.getContent())
                 .date(new Date().getTime())
