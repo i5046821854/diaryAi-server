@@ -37,7 +37,7 @@ public class InitDb {
 
         public void dbInit(){
             List<String> grades = new ArrayList<>();
-            grades.add("USER");
+            grades.add("ROLE_USER");
             String password = passwordEncoder.encode("123");
             User user = new User("dldudtls", password, grades);
             userRepository.save(user);

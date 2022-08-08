@@ -7,7 +7,6 @@ import com.aidiary.demo.exception.DiaryException;
 import com.aidiary.demo.repository.DiaryRepository;
 import com.aidiary.demo.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +21,6 @@ import java.util.Map;
 public class DiaryService {
 
     private final DiaryRepository diaryRepository;
-    private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider jwtTokenProvider;
 
     public List<UpdateResponseDto> getDiary(String userId)

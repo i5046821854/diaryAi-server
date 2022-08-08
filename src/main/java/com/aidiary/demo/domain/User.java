@@ -33,6 +33,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        System.out.println("asdsa");
         return this.grades.stream()
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
