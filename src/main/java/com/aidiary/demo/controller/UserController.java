@@ -10,10 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,6 +46,11 @@ public class UserController {
         Map<String, String> result = new HashMap<>();
         result.put("token", token);
         return result;
+    }
+
+    @GetMapping("/user")
+    public String user(@RequestBody AccountRequestDto user) {
+        return "user";
     }
 
 }
