@@ -36,20 +36,24 @@ public class Diary {
 
     private Long date;
 
-    public Diary(Integer id, String userId, String title, String content, Long date) {
+    private int status;
+
+    public Diary(Integer id, String userId, String title, String content, Long date, int status) {
         this.diaryId = id;
         this.userId = userId;
         this.title = title;
         this.content = content;
         this.date = date;
+        this.status = status;
     }
 
     @Builder
-    public Diary(String userId, String title, String content, Long date) {
+    public Diary(String userId, String title, String content, Long date, int status) {
         this.userId = userId;
         this.title = title;
         this.content = content;
         this.date = date;
+        this.status = status;
     }
 
     public void changeRatings(Map<String, String> newRatings)

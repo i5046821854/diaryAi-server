@@ -41,7 +41,7 @@ public class InitDb {
             String password = passwordEncoder.encode("123");
             User user = new User("dldudtls", password, grades);
             userRepository.save(user);
-            Diary diary = new Diary(1, "dldudtls", "title", "contents", new Date().getTime());
+            Diary diary = new Diary(1, "dldudtls", "title", "contents", new Date().getTime(),1);
             diaryRepository.save(diary);
         }
     }

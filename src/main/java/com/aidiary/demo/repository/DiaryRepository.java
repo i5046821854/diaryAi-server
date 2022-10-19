@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public interface DiaryRepository extends JpaRepository<Diary, Integer> {
 
-    @Query("select new com.aidiary.demo.dto.UpdateResponseDto(m.diaryId, m.title, m.content, m.rating1, m.rating2, m.rating3, m.date) from Diary m where m.userId = :userId")
+    @Query("select new com.aidiary.demo.dto.UpdateResponseDto(m.diaryId, m.title, m.content, m.rating1, m.rating2, m.rating3, m.date) from Diary m where m.userId = :userId and m.status = 2")
     List<UpdateResponseDto> findDiaryResponseDto(@Param("userId") String userId);
 
     Optional<Diary> findById(int id);
